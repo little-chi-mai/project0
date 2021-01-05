@@ -11,8 +11,11 @@
   <body>
     <div class="container">
       <h1>TIC TAC TOE</h1>
+      <form>
 
+      </form>
       <div class="board">
+
 
         <div class="line">
           <div id="00" class="square"></div>
@@ -33,13 +36,21 @@
         </div>
       </div>
 
-      <div id="turn">
+      <div class="turn">
         <span class="player" id="player1">Player 1: Nought</span>
-        <span>-------</span>
+        <span>------</span>
         <span class="player" id="player2">Player 2: Cross</span>
       </div>
 
-      <div id="announce"></div>
+      <div class="turn">
+        <span id="winCountPlayer1">0</span>
+        <span>------</span>
+        <span id="winCountPlayer2">0</span>
+      </div>
+
+      <div id="winnerAnnounce"></div>
+
+      <button type="button" id="playAgainButton" class="invisible">Play again!</button>
     </div>
   </body>
 </html>

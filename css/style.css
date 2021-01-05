@@ -16,6 +16,11 @@ h1 {
   font-size: 70px;
 }
 
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .board {
   margin: 0 auto;
   width: 312px;
@@ -37,14 +42,14 @@ h1 {
   margin: 0;
 }
 
-#announce {
+#winnerAnnounce {
   color: #aaa;
   text-align: center;
   font-size: 50px;
   margin: 10px;
 }
 
-#turn {
+.turn {
   color: #aaa;
   text-align: center;
   font-size: 30px;
@@ -53,4 +58,13 @@ h1 {
 
 .dimmer {
   color: #444;
+}
+
+button {
+  margin: 0 auto;
+  display: block;
+}
+
+.invisible {
+  visibility: hidden;
 }

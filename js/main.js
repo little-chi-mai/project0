@@ -1,4 +1,4 @@
-const board = [['a', 'b', 'c'],
+let board = [['a', 'b', 'c'],
               ['d', 'e', 'f'],
               ['g', 'h', 'i']];
 
@@ -11,6 +11,14 @@ const tick = {
   cross: function (row, column) {
     board[row][column] = 'X';
     $(`#${row}${column}`).text('X');
+  }
+}
+
+const clearBoard = function () {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      $(`#${i}${j}`).text('');
+    }
   }
 }
 
@@ -53,23 +61,32 @@ const checkWinner = function () {
 
 $(document).ready(function () {
   let turnCount = 0;
+  const players = ['player1', 'player2'];
+
   let hasWon = false;
   $(`${'#player2'}`).addClass('dimmer');
+  let winCount1 = 0;
+  let winCount2 = 0;
+
 
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       $(`#${i}${j}`).on('click', function () {
+        let playerIndex = turnCount % 2;
+
+        const currentPlayer = players[playerIndex];
+
         if (hasWon === false) {
           if (turnCount <= 9) {
             if (board[i][j] === 'O' || board[i][j] === 'X') {
               return;
             } else {
-              if (turnCount % 2 === 0) {
+              if (currentPlayer === 'player1') {
                 tick.nought(i, j);
                 turnCount += 1;
                 $(`${'#player1'}`).addClass('dimmer');
                 $(`${'#player2'}`).removeClass('dimmer');
-              } else {
+              } else if (currentPlayer === 'player2'){
                 tick.cross(i, j);
                 turnCount += 1;
                 $(`${'#player2'}`).addClass('dimmer');
@@ -80,15 +97,25 @@ $(document).ready(function () {
 
               if (winner === 'nought') {
                 hasWon = true;
-                $('#announce').text('Player 1 won!')
+                winCount1 += 1;
+                $('#winnerAnnounce').text('Player 1 won!');
+                $('#winnerAnnounce').removeClass('invisible');
+                $('#winCountPlayer1').text(winCount1);
+                $('#playAgainButton').removeClass('invisible');
               } else if (winner === 'cross') {
                 hasWon = true;
-                $('#announce').text('Player 2 won!')
+                winCount2 += 1;
+                $('#winnerAnnounce').text('Player 2 won!');
+                $('#winnerAnnounce').removeClass('invisible');
+                $('#winCountPlayer2').text(winCount2);
+                $('#playAgainButton').removeClass('invisible');
               }
             }
 
             if (turnCount === 9) {
-              $('#announce').text(`It's a tie!`)
+              hasWon = true;
+              $('#winnerAnnounce').text(`It's a tie!`)
+              $('#playAgainButton').removeClass('invisible');
             }
           } else {
             return;
@@ -96,9 +123,27 @@ $(document).ready(function () {
         } else {
           return;
         }
+        console.log(currentPlayer);
+        console.log(turnCount);
+        console.log(hasWon);
       })
     }
   }
+
+  $('#playAgainButton').on('click', function () {
+    board = [['a', 'b', 'c'],
+                  ['d', 'e', 'f'],
+                  ['g', 'h', 'i']];
+    $('#playAgainButton').addClass('invisible');
+    $('#winnerAnnounce').addClass('invisible');
+    clearBoard();
+
+    if (players[playerIndex]) {
+      turnCount = 1;
+    }
+    hasWon = false;
+  })
 })
+
 
 // https://little-chi-mai.github.io/project0
