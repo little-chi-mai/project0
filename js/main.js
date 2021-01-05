@@ -64,30 +64,42 @@ $(document).ready(function () {
     for (let j = 0; j < 3; j++) {
       $(`#${i}${j}`).on('click', function () {
         if (hasWon === false) {
-          if (board[i][j] === 'O' || board[i][j] === 'X') {
-            return;
-          } else {
-            if (turn % 2 === 0) {
-              tick.nought(i, j);
-              $(`#${i}${j}`).text('O');
-              turn += 1;
+          if (turn <= 9) {
+            if (board[i][j] === 'O' || board[i][j] === 'X') {
+              return;
             } else {
-              tick.cross(i, j);
-              $(`#${i}${j}`).text('X');
-              turn += 1;
-            }
-            console.log(i, j, board[i][j]);
-            
-            let winner = checkWinner();
+              if (turn % 2 === 0) {
+                tick.nought(i, j);
+                $(`#${i}${j}`).text('O');
+                turn += 1;
+                $(`${'#turn'}`).text('Player 2: Cross')
+              } else {
+                tick.cross(i, j);
+                $(`#${i}${j}`).text('X');
+                turn += 1;
+                $(`${'#turn'}`).text('Player 1: Nought')
+              }
+              console.log(i, j, board[i][j]);
 
-            if (winner === 'nought') {
-              hasWon = true;
-              $('#announce').text('Nought won!')
-            } else if (winner === 'cross') {
-              hasWon = true;
-              $('#announce').text('Cross won!')
+              let winner = checkWinner();
+
+              if (winner === 'nought') {
+                hasWon = true;
+                $('#announce').text('Nought won!')
+              } else if (winner === 'cross') {
+                hasWon = true;
+                $('#announce').text('Cross won!')
+              }
             }
+
+            if (turn === 9) {
+              $(`${'#turn'}`).text(' ')
+              $('#announce').text(`It's a tie!`)
+            }
+          } else {
+            return;
           }
+
         } else {
           return;
         }
@@ -95,3 +107,5 @@ $(document).ready(function () {
     }
   }
 })
+
+// https://little-chi-mai.github.io/project0
