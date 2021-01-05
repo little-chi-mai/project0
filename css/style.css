@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
+
 body {
   background-color: #222;
   padding: 0;
   margin: 0;
-  font-family: arial;
+  font-family: 'Schoolbell', arial;
 }
 
 h1 {
   color: #aaa;
   text-align: center;
+  font-family: 'Cabin Sketch';
+  font-size: 70px;
 }
 
 .board {
@@ -25,7 +31,6 @@ h1 {
   margin: auto;
   font-size: 100px;
   text-align: center;
-
 }
 
 .line {
@@ -42,6 +47,10 @@ h1 {
 #turn {
   color: #aaa;
   text-align: center;
-  font-size: 40px;
-  margin: 10px;
+  font-size: 30px;
+  margin: 30px auto;
+}
+
+.dimmer {
+  color: #444;
 }
