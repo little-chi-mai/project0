@@ -91,7 +91,7 @@ const game = {
 
   performTurn: function (row, column) {
     this.tick(row, column);
-    // this.findWinnerOrTie();
+
     let winner = this.findWinnerOrTie();
 
     if (!winner) {
@@ -113,12 +113,10 @@ const game = {
         || this.board[0][0] === this.board[1][1] & this.board[0][0] === this.board[2][2] & this.board[0][0] !== ''
         //
         || this.board[2][0] === this.board[1][1] & this.board[2][0] === this.board[0][2] & this.board[1][1] !== '') {
-          console.log('Someone won!');
           winner = this.currentFirstPlayer().name;
           this.hasWon = true;
 
-        } else if (this.playerTurnCount === 9) {
-          console.log('TIE!!!!!!!!!!');
+        } else if (this.playerTurnCount === 9 & this.hasWon !== true) {
           this.hasWon = 'tie';
           winner = 'No one';
         }
