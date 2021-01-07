@@ -1,9 +1,11 @@
 const game = {
   players: [
     {name: 'playerHuman',
+    id: 'left',
     symbol: '',
     winCount: 0},
     {name: 'playerAlien',
+    id: 'right',
     symbol: '',
     winCount: 0}],
 
@@ -46,8 +48,8 @@ const game = {
     let index = this.playerIndex(playerObj);
     this.players.splice(index, 1); // remove the player
     this.players.unshift(playerObj); // add the player at the beginning
-    this.players[0].symbol = 'O';
-    this.players[1].symbol = 'X';
+    // this.players[0].symbol = 'O';
+    // this.players[1].symbol = 'X';
     return this.players[0];
   },
 

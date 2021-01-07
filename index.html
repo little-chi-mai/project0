@@ -40,25 +40,40 @@
       </div>
 
       <div class="custom">
-        <input type="text" name="name" id='nameplayerHuman' value="Player1 pls type your name">
+        <input type="text" name="name" id='name-playerHuman' value="" placeholder="Player1 pls type your name">
 
+        <label for="symbol-choice1">Choose a symbol:</label>
+        <select id="symbol-choice1">
+            <option value="">--Please choose an option--</option>
+            <option value="O">O</option>
+            <option value="X">X</option>
 
-        <input type="text" name="name" id='nameplayerAlien' value="Player2 pls type your name">
+        </select>
+
+        <input type="text" name="name" id='name-playerAlien' value="" placeholder="Player2 pls type your name">
+
+        <label for="symbol-choice2">Choose a symbol:</label>
+        <select id="symbol-choice2">
+            <option value="">--Please choose an option--</option>
+            <option value="O">O</option>
+            <option value="X">X</option>
+
+        </select>
 
         <button type="button" name="button" id='playerNames'>OK</button>
 
       </div>
 
       <div class="turn">
-        <span class="player" id="playerHuman">Player Human: </span>
+        <span class="player" id="player-left">Player Human: </span>
         <span>------</span>
-        <span class="player" id="playerAlien">Player Alien:</span>
+        <span class="player" id="player-right">Player Alien:</span>
       </div>
 
       <div class="turn">
-        <span id="winCountplayerHuman">0</span>
+        <span id="winCount-left">0</span>
         <span>------</span>
-        <span id="winCountplayerAlien">0</span>
+        <span id="winCount-right">0</span>
       </div>
 
       <div id="winnerAnnounce"></div>

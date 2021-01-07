@@ -12,22 +12,17 @@ const clearBoardUI = function () {
 $(document).ready(function () {
 
   const render = function () {
-    // $(`#${game.currentFirstPlayer().name}`).text(`${game.currentFirstPlayer().name}: ${game.symbolFirstPlayer()}`);
-    //
-    // $(`#${game.currentSecondPlayer().name}`).text(`${game.currentSecondPlayer().name}: ${game.symbolSecondPlayer()}`);
-    //
-    // $(`#winCountPlayerHuman`).text(`${game.players[playerIndex(playerHuman).winCount]}`);
 
     for (const player of game.players) {
       $(`#${player.name}`).text(`${player.name}: ${player.symbol}`);
-      $(`#winCount${player.name}`).text(`${player.winCount}`);
+      $(`#winCount-${player.id}`).text(`${player.winCount}`);
     }
   };
 
 
   const setDimmerPlayer = function () {
-    $(`#${game.currentFirstPlayer().name}`).removeClass('dimmer');
-    $(`#${game.currentSecondPlayer().name}`).addClass('dimmer');
+    $(`#player-${game.currentFirstPlayer().id}`).removeClass('dimmer');
+    $(`#player-${game.currentSecondPlayer().id}`).addClass('dimmer');
   };
 
   game.setupNewGame();
@@ -36,6 +31,26 @@ $(document).ready(function () {
   setDimmerPlayer();
 
   render();
+
+  // Submit players' names
+
+  $('#playerNames').on('click', function () {
+    // $('#nameplayerHuman').value();
+    // console.log($('#nameplayerHuman').focus());
+    console.log($('#name-playerHuman').val());
+    game.players[0].name = $('#name-playerHuman').val();
+    game.players[1].name = $('#name-playerAlien').val();
+
+    game.players[0].symbol = $('#symbol-choice1').val();
+    game.players[1].symbol = $('#symbol-choice2').val();
+
+
+    $(`#player-${game.currentFirstPlayer().id}`).text($('#name-playerHuman').val() + ': ' + $('#symbol-choice1').val());
+    $(`#player-${game.currentSecondPlayer().id}`).text($('#name-playerAlien').val() + ': ' + $('#symbol-choice2').val());
+
+  });
+
+
 
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
@@ -94,5 +109,6 @@ $(document).ready(function () {
     setDimmerPlayer();
 
   })
+
 
 });
