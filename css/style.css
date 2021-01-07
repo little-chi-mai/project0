@@ -53,8 +53,8 @@ h2 {
 
 .choose-name {
   margin: 10px auto;
-  width: 600px;
-  padding: 10px;
+  width: 505px;
+  padding: 15px;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
   background-color: #aaa;
@@ -64,12 +64,14 @@ h2 {
 .type-symbol {
   font-size: 17px;
   font-family: 'Josefin Sans', sans-serif;
+  border-radius: 5px;
 }
 
 .type-name {
   font-size: 17px;
   font-family: 'Josefin Sans', sans-serif;
   margin: 3px;
+  border-radius: 5px;
 }
 
 #winnerAnnounce {
@@ -82,13 +84,13 @@ h2 {
 .turn {
   color: #aaa;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
   margin: 30px auto;
 }
 
 .dimmer {
   color: #444;
-  font-size: 22px;
+  font-size: 28px;
 }
 
 button {
