@@ -88,6 +88,7 @@ h2 {
 
 .dimmer {
   color: #444;
+  font-size: 22px;
 }
 
 button {
@@ -95,11 +96,23 @@ button {
   display: block;
   width: 150px;
   height: 50px;
-  font-family: 'Cabin Sketch';
+  font-family: 'Schoolbell', arial;
   font-size: 25px;
   color: red;
   border-radius: 10px;
-  transform-origin: bottom;
+  animation-name: square;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: backwards;
+}
+
+@keyframes square {
+  0% {background-color: #aaa}
+  25% {background-color: aqua}
+  50% {background-color: pink}
+  75% {background-color: yellow}
+  100% {background-color: coral}
 }
 
 .invisible {
@@ -108,5 +121,4 @@ button {
 
 .disappear {
   display: none;
-  transform-origin: bottom;
 }
