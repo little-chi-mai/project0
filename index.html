@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <h1>TIC TAC TOE</h1>
-      <h2>Nought goes first!</h2>
+      <h2>By Mai Nguyen</h2>
       <form>
 
       </form>
@@ -39,26 +39,22 @@
         </div>
       </div>
 
-      <div class="custom">
-        <input type="text" name="name" id='name-playerHuman' value="" placeholder="Player1 pls type your name">
+      <div class="choose-name">
+        <input class="type-name" type="text" name="name" id='name-playerHuman' value="" placeholder="Human's name" >
 
-        <label for="symbol-choice1">Choose a symbol:</label>
-        <select id="symbol-choice1">
-            <option value="">--Please choose an option--</option>
-            <option value="O">O</option>
-            <option value="X">X</option>
-
+        <label for="symbol-choice1">Type a symbol:</label>
+          <input class="type-symbol" type="text" name="name" id='symbol-choice1' value="" placeholder="Max of 1 character" maxlength="1" >
         </select>
 
-        <input type="text" name="name" id='name-playerAlien' value="" placeholder="Player2 pls type your name">
+        <input class="type-name" type="text" name="name" id='name-playerAlien' value="" placeholder="Alien's name">
 
-        <label for="symbol-choice2">Choose a symbol:</label>
-        <select id="symbol-choice2">
-            <option value="">--Please choose an option--</option>
-            <option value="O">O</option>
-            <option value="X">X</option>
+        <label for="symbol-choice2">Type a symbol:</label>
 
+          <input class="type-symbol" type="text" name="name" id='symbol-choice2' value="" placeholder="Max of 1 character" maxlength="1">
         </select>
+
+        <div id="alert" class='invisible'>
+        </div>
 
         <button type="button" name="button" id='playerNames'>OK</button>
 

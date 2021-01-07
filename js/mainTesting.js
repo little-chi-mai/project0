@@ -37,17 +37,31 @@ $(document).ready(function () {
   $('#playerNames').on('click', function () {
     // $('#nameplayerHuman').value();
     // console.log($('#nameplayerHuman').focus());
-    console.log($('#name-playerHuman').val());
-    game.players[0].name = $('#name-playerHuman').val();
-    game.players[1].name = $('#name-playerAlien').val();
+    const player1Name = $('#name-playerHuman').val();
+    const player2Name = $('#name-playerAlien').val();
 
-    game.players[0].symbol = $('#symbol-choice1').val();
-    game.players[1].symbol = $('#symbol-choice2').val();
+    const player1Symbol = $('#symbol-choice1').val();
+    const player2Symbol = $('#symbol-choice2').val();
 
 
-    $(`#player-${game.currentFirstPlayer().id}`).text($('#name-playerHuman').val() + ': ' + $('#symbol-choice1').val());
-    $(`#player-${game.currentSecondPlayer().id}`).text($('#name-playerAlien').val() + ': ' + $('#symbol-choice2').val());
+    game.players[0].name = player1Name;
+    game.players[1].name = player2Name;
 
+    game.players[0].symbol = player1Symbol;
+    game.players[1].symbol = player2Symbol;
+
+    if (!player1Name || !player2Name || !player1Symbol || !player2Symbol) {
+      $('#alert').text("Please enter both players' names and symbols!");
+      $('#alert').removeClass('invisible');
+    } else if (player1Name === player2Name || player1Symbol === player2Symbol) {
+      $('#alert').text(`Please enter different names and symbols for ${player1Name} and ${player2Name}!`);
+      $('#alert').removeClass('invisible');
+      return;
+    } else {
+      $('.choose-name').addClass('invisible');
+      $(`#player-${game.currentFirstPlayer().id}`).text(player1Name + ': ' + player1Symbol);
+      $(`#player-${game.currentSecondPlayer().id}`).text(player2Name + ': ' + player2Symbol);
+    }
   });
 
 

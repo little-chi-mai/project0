@@ -9,7 +9,6 @@ const game = {
     symbol: '',
     winCount: 0}],
 
-  symbolNames: {'O': 'Nought', 'X': 'Cross'},
 
   playerTurnCount: 0,
   tieGameCount: 0,
