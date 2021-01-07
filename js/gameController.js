@@ -18,17 +18,17 @@ const game = {
     return this.players[0];
   },
 
-  symbolFirstPlayer: function () {
-    return this.symbolNames[this.currentFirstPlayer().symbol];
-  },
+  // symbolFirstPlayer: function () {
+  //   return this.symbolNames[this.currentFirstPlayer().symbol];
+  // },
 
   currentSecondPlayer: function () {
     return this.players[1];
   },
 
-  symbolSecondPlayer: function () {
-    return this.symbolNames[this.currentSecondPlayer().symbol];
-  },
+  // symbolSecondPlayer: function () {
+  //   return this.symbolNames[this.currentSecondPlayer().symbol];
+  // },
 
   board: [
     ['', '', ''],

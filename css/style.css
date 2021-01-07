@@ -16,6 +16,13 @@ h1 {
   font-size: 70px;
 }
 
+h2 {
+  color: #aaa;
+  text-align: center;
+  font-family: 'Cabin Sketch';
+  font-size: 40px;
+}
+
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -63,6 +70,12 @@ h1 {
 button {
   margin: 0 auto;
   display: block;
+  width: 150px;
+  height: 50px;
+  font-family: 'Cabin Sketch';
+  font-size: 25px;
+  color: red;
+  border-radius: 10px;
 }
 
 .invisible {

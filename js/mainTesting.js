@@ -22,8 +22,6 @@ $(document).ready(function () {
       $(`#${player.name}`).text(`${player.name}: ${player.symbol}`);
       $(`#winCount${player.name}`).text(`${player.winCount}`);
     }
-
-    console.log('Rendered');
   };
 
 
@@ -63,8 +61,9 @@ $(document).ready(function () {
               game.players[0].winCount++;
               game.totalGameCount++;
 
-              $('#winnerAnnounce').text(`${game.players[0].name} won!!!`);
+              $('#winnerAnnounce').text(`Congrats!! ${game.players[0].name} won!!!`);
               $('#playAgainButton').removeClass('invisible');
+              $('#winnerAnnounce').removeClass('invisible');
 
 
             } else if (game.hasWon === 'tie') {
@@ -72,7 +71,10 @@ $(document).ready(function () {
               console.log('TIE!')
               $('#winnerAnnounce').text(`It's a tie!!!`);
               $('#playAgainButton').removeClass('invisible');
+              $('#winnerAnnounce').removeClass('invisible');
             }
+
+            render();
           }
           game.checkStatus();
         }
@@ -90,7 +92,6 @@ $(document).ready(function () {
 
     render();
     setDimmerPlayer();
-
 
   })
 
