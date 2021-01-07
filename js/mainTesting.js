@@ -26,7 +26,6 @@ $(document).ready(function () {
   };
 
   game.setupNewGame();
-  game.checkStatus();
 
   setDimmerPlayer();
 
@@ -58,7 +57,7 @@ $(document).ready(function () {
       $('#alert').removeClass('invisible');
       return;
     } else {
-      $('.choose-name').addClass('invisible');
+      $('.choose-name').addClass('disappear');
       $(`#player-${game.currentFirstPlayer().id}`).text(player1Name + ': ' + player1Symbol);
       $(`#player-${game.currentSecondPlayer().id}`).text(player2Name + ': ' + player2Symbol);
     }
@@ -97,7 +96,6 @@ $(document).ready(function () {
 
             } else if (game.hasWon === 'tie') {
               game.totalGameCount++;
-              console.log('TIE!')
               $('#winnerAnnounce').text(`It's a tie!!!`);
               $('#playAgainButton').removeClass('invisible');
               $('#winnerAnnounce').removeClass('invisible');
@@ -105,7 +103,6 @@ $(document).ready(function () {
 
             render();
           }
-          game.checkStatus();
         }
       )
     }

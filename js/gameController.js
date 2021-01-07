@@ -19,17 +19,10 @@ const game = {
     return this.players[0];
   },
 
-  // symbolFirstPlayer: function () {
-  //   return this.symbolNames[this.currentFirstPlayer().symbol];
-  // },
-
   currentSecondPlayer: function () {
     return this.players[1];
   },
 
-  // symbolSecondPlayer: function () {
-  //   return this.symbolNames[this.currentSecondPlayer().symbol];
-  // },
 
   board: [
     ['', '', ''],
@@ -47,8 +40,7 @@ const game = {
     let index = this.playerIndex(playerObj);
     this.players.splice(index, 1); // remove the player
     this.players.unshift(playerObj); // add the player at the beginning
-    // this.players[0].symbol = 'O';
-    // this.players[1].symbol = 'X';
+
     return this.players[0];
   },
 
@@ -78,10 +70,6 @@ const game = {
     return this.board;
   },
 
-  // setupFirstGame: function () {
-  //   this.newBoard();
-  // },
-
   setupNewGame: function () {
     this.newBoard();
     this.playerTurnCount = 0;
@@ -107,7 +95,6 @@ const game = {
     let winner = this.findWinnerOrTie();
 
     if (!winner) {
-      console.log(winner);
       this.switchPlayer();  //switch player if no winner yet
     };
   },
@@ -115,9 +102,6 @@ const game = {
 
   findWinnerOrTie: function () {
     let winner;
-    // let firstPlayer = this.currentFirstPlayer();
-    // let secondPlayer = this.currentSecondPlayer();
-    // let game = this;
 
     if (this.playerTurnCount <= 9) {
       for (let i = 0; i < 3; i++) {
@@ -142,15 +126,4 @@ const game = {
     }
     return winner;
   },
-
-  checkStatus: function () {
-    console.log('First player ' + this.currentFirstPlayer().name);
-    console.log('Second player ' + this.currentSecondPlayer().name);
-    console.log('Current playerTurnCount ' + this.playerTurnCount);
-    console.log(this.board);
-    console.log('Winner ' + this.findWinnerOrTie());
-    console.log('TotalGameCount: ' + this.totalGameCount);
-    console.log('---------');
-  }
-
 }

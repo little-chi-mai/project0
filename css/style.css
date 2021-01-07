@@ -99,8 +99,14 @@ button {
   font-size: 25px;
   color: red;
   border-radius: 10px;
+  transform-origin: bottom;
 }
 
 .invisible {
   visibility: hidden;
+}
+
+.disappear {
+  display: none;
+  transform-origin: bottom;
 }
