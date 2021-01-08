@@ -1,4 +1,5 @@
 const game = {
+  // players info
   players: [
     {name: 'playerHuman',
     id: 'left',
@@ -10,9 +11,11 @@ const game = {
     winCount: 0}],
 
 
-  playerTurnCount: 0,
-  totalGameCount: 0,
-  hasWon: false,
+  playerTurnCount: 0, // track the turn count
+
+  totalGameCount: 0, // track number of games
+
+  hasWon: false,  // track if there is a winner
 
   currentFirstPlayer: function () {
     return this.players[0];
@@ -34,7 +37,7 @@ const game = {
     return index;
   },
 
-
+  // set first player to any player
   setFirstPlayer: function (playerObj) {
     let index = this.playerIndex(playerObj);
     this.players.splice(index, 1); // remove the player
@@ -42,7 +45,7 @@ const game = {
 
     return this.players[0];
   },
-
+  // switch 1st and 2nd player
   switchPlayer: function () {
     this.players.reverse();
   },
@@ -51,7 +54,7 @@ const game = {
     let count = this.playerTurnCount;
     this.board.forEach(function(row) {
       row.forEach(function (item) {
-        if (item !== '') {
+        if (item !== '') {  //every square that is not blank
           count += 1;
         }
       })
@@ -74,12 +77,11 @@ const game = {
     this.playerTurnCount = 0;
     this.hasWon = false;
 
-    if (this.totalGameCount === 0) {
+    if (this.totalGameCount === 0) { //first game: playerHuman goes first
       this.setFirstPlayer(this.currentFirstPlayer());
-      console.log('First game starts!');
-    } else {
+
+    } else { // loser goes first
       this.setFirstPlayer(this.currentSecondPlayer());
-      console.log('Ready to play again');
     };
   },
 
@@ -104,13 +106,13 @@ const game = {
 
     if (this.playerTurnCount <= 9) {
       for (let i = 0; i < 3; i++) {
-
+              //win by a row
         if (this.board[i][0] === this.board[i][1] & this.board[i][0] === this.board[i][2] & this.board[i][0] !== ''
-
+              //win by a column
         || this.board[0][i] === this.board[1][i] & this.board[0][i] === this.board[2][i] & this.board[0][i] !== ''
-        //
+              //win by cross lines
         || this.board[0][0] === this.board[1][1] & this.board[0][0] === this.board[2][2] & this.board[0][0] !== ''
-        //
+              //win by cross lines
         || this.board[2][0] === this.board[1][1] & this.board[2][0] === this.board[0][2] & this.board[1][1] !== '') {
           winner = this.currentFirstPlayer().name;
           this.hasWon = true;

@@ -23,7 +23,7 @@ $(document).ready(function () {
 
   };
 
-  // set up new game
+  game.setupNewGame();
 
 
   // Submit players' names and symbols
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
             } else {
 
-              if (game.board[i][j] === "O" || game.board[i][j] === "X" ) {
+              if (game.board[i][j] === player1Symbol || game.board[i][j] === player2Symbol ) {
                 return;
 
               } else {

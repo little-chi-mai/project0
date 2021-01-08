@@ -35,7 +35,7 @@ Click [here](https://little-chi-mai.github.io/project0/) to enter the zone of an
 
 - The `board` is stored in a nested array makes it easy to be iterated through.
 
-- The `findWinnerOrTie` function was written to iteration through every possible scenario to find a winner. However, instead of scanning the entire board for winning condition, this can be improved by writing a function that accept the board input `row` and `column` and check the winning condition around the clicked location. This will allow the game works with bigger board size.
+- The `findWinnerOrTie` function was written to iterate through every possible directions to find a winner. However, this can be improved by writing a function that accept the board input `row` and `column` and check the winning condition around the clicked location, instead of scanning the entire board for winning condition. This will allow the function to scale with bigger board size, or modified winning condition, without impacting performance.
 
 
 -------
