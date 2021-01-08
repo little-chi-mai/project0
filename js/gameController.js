@@ -11,7 +11,6 @@ const game = {
 
 
   playerTurnCount: 0,
-  tieGameCount: 0,
   totalGameCount: 0,
   hasWon: false,
 
