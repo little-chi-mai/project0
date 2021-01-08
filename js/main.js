@@ -98,10 +98,8 @@ $(document).ready(function () {
 
         $('#playAgainButton').addClass('invisible');
         $('#winnerAnnounce').addClass('invisible');
-        clearBoardUI();
 
         game.setupNewGame();
-
         render();
 
       })
