@@ -1,14 +1,3 @@
-console.log(game.players);
-
-const clearBoardUI = function () {
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      $(`#${i}${j}`).text('');
-    }
-  }
-}
-
-
 $(document).ready(function () {
 
   const render = function () {
@@ -16,6 +5,11 @@ $(document).ready(function () {
     for (const player of game.players) {
       $(`#winCount-${player.id}`).text(`${player.winCount}`);
     }
+    //updates the board
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        $(`#${i}${j}`).text(`${game.board[i][j]}`);
+      }};
 
     // set dimmer for player's turn
     $(`#player-${game.currentFirstPlayer().id}`).removeClass('dimmer');
@@ -23,10 +17,7 @@ $(document).ready(function () {
 
   };
 
-  game.setupNewGame();
-
-
-  // Submit players' names and symbols
+  // After clicking "let's play button": submit players' names and symbols
   $('#playerNames').on('click', function () {
     const player1Name = $('#name-playerHuman').val();
     const player2Name = $('#name-playerAlien').val();
